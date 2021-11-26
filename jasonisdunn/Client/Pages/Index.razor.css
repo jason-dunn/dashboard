@@ -1,0 +1,137 @@
+﻿h1{
+    display:none;
+}
+
+h3 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 20.4px;
+    text-align: center;
+    color: black;
+}
+
+.tablelogin {
+}
+
+.tablelogin tr {
+    width: 1%;
+}
+
+.tablelogin td {
+    width: 1%;
+}
+
+.tablelogincontent tr {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.tablelogincontent td {
+    text-align: left;
+    min-width: 240px;
+    width: 200px;
+    height: 1.1rem;
+    /* font-size for the whole form*/
+    /* -----------------------------*/
+    font-size: 1rem;
+    /* -----------------------------*/
+}
+
+.tablelogincontent label {
+    text-align: center;
+    width: 200px;
+}
+
+.tablelogincontent input {
+    text-align: left;
+}
+
+.tablelogincontent textarea {
+    text-align: left;
+}
+
+.tableloginsubmit {
+    text-align: center;
+}
+
+    .tableloginsubmit th {
+        margin-top: 100%;
+        margin-bottom: 1%;
+    }
+
+    .tableloginsubmit td {
+        font-size: .8rem;
+    }
+
+.btn-primary:not(:disabled):not(.disabled) {
+    background: #448AFF;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #1861ac;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    width: 108px;
+    border: 1px solid black;
+    border-radius: 14px;
+    font-size: .8rem;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    text-decoration: wavy;
+    color: #ffffff;
+    background-color: #1861ac;
+    border: 1px solid #d7d7d7;
+    border-radius: .3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc
+}
+
+button:focus {
+    box-shadow: 0 0 0 .1rem rgba(38,143,255,.5);
+    outline: 1px solid #fff;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+h4 {
+    color: #448AFF;
+    text-align: center;
+}
+
+
+.tablelogincontinue {
+    margin-top: 15%;
+}
+
+    .tablelogincontinue th {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .tablelogincontinue td {
+        font-size: 1rem;
+    }
+

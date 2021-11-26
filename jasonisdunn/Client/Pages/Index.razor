@@ -1,0 +1,153 @@
+﻿@page "/"
+@using dashoard
+@using dashboard.Shared
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Threading
+@using MudBlazor
+@using MudBlazor.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+       
+<h1>
+ Focused on .Net Framework and .Net Core!!! I have been a C# and Visual Basic software developer for over ten years.
+ My current interest is Microsoft's Blazor. It's a Full Stack web application using Web Assembly.
+</h1>
+
+        <MudAppBar Fixed="true" Color="Color.Transparent" Elevation="0" >
+            <MudSpacer />
+            <table>
+            <tr>
+            <td>
+            <EditForm  style="color:#007bff" Model="@_CodeFormModel" OnValidSubmit="OnSubmitCode">
+            <div class="logincontinue">
+            <table class="tablelogincontinue">
+            <tbody>
+                <tr>
+                    <td>
+             <h3>You have made it to no-man's-land!</h3>
+                   </td>
+                </tr>
+                  <br />
+                <tr>
+                    <td>
+           
+                    </td>
+                 </tr>
+                  <br />
+                <tr>
+                    <td>
+                        <div class="bg-primary text-light rounded @Visibility">
+                            <h4>Hi! Do you have a code? </h4>               
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                           <div class="bg-primary text-light rounded @Visibility">
+                        <label for="Code"  style="text-align:center; width:200px; margin-left:25%; margin-right:25%" ><h4>Enter Code</h4></label>
+                        </div>
+                   </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <div class="inputext">
+                        <div class="bg-primary text-light rounded @Visibility">
+                        <InputText style="text-align:center; width:200px; margin-left:25%; margin-right:25%"  @bind-Value="_CodeFormModel.Code"/>
+                      <ValidationMessage For="@(() => _CodeFormModel.Code)" />
+                          </div>
+                          </div>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <label style="text-align:center; width: 200px; margin-left:25%; margin-right:25%; color:red">@_WrongCode</label>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <button id="continueBtn" class="btn btn-primary @Visibility" style="text-align:center; width:200px; margin-left:25%; margin-right:25%" 
+                                type="submit" @onclick="OnSubmitCode">
+                            <i class="fa fa-hand-point-right"> </i> Continue
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+            </EditForm>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <EditForm class="@Visibility" Model="@model"  style="color:#007bff; text-align:center; width:200px; margin-left:25%; margin-right:25%">
+            <InputSelect  @bind-Value="model.language" >
+            <option value="@Language.English">@Language.English</option>
+            <option value="@Language.French">@Language.French</option>
+            </InputSelect>
+            </EditForm>
+            </td>
+            </tr>
+            </table>
+           <MudSpacer />
+        </MudAppBar>
+
+@code {
+    private CodeFormModel _CodeFormModel = new CodeFormModel();
+    private string Visibility = "d-none";
+    private string? _WrongCode;
+
+    Model model = new Model();
+
+    class Model
+    {
+        public Language language { get; set; }
+    }
+
+    enum Language
+    {
+        English,
+        French
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //_CodeFormModel.Code = "123456";
+        await Task.Delay(5000);
+        Visibility = "d-block";
+        StateHasChanged();
+    }
+
+
+    private async Task OnSubmitCode()
+    {
+        int l = 0;
+        if( _CodeFormModel.Code=="123456")
+        {
+            switch (model.language)
+            {
+                case Language.English:
+                    {
+                        l = 1;
+                        break;
+                    }
+                case Language.French:
+                    {
+                        l = 2;
+                        break;
+                    }
+            }
+            await Task.Delay(100);
+            NavigationManager.NavigateTo("/raw/" + l);                  
+        }
+        else
+        {
+            await Task.Delay(100);
+            _WrongCode = "Wrong Code, Try Again!";
+            _CodeFormModel.Code = "";
+            StateHasChanged();     
+        }     
+    }
+
+}
+
+
+

@@ -1,0 +1,158 @@
+﻿@page "/send"
+
+@using dashboard.Shared
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Threading
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@implements IAsyncDisposable
+<table>
+    <tr>
+        <td>
+            <h3>Hub Functions</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button @onclick="StartMarquee" class="mbutton @mstartVisibility">Send Marquee</button>
+        </td>
+        <td>
+            <button @onclick="StopMarquee" class="mbutton @mstopVisibility">Stop Marquee</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button @onclick="StartMiners" class="dbutton @dstartVisibility">Send Data</button>
+        </td>
+        <td>
+            <button @onclick="StopMiners" class="dbutton @dstopVisibility">Stop Data</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button @onclick="StartHide" class="hbutton @hstartVisibility">Send Show</button>
+        </td>
+        <td>
+            <button @onclick="StopHide" class="hbutton @hstopVisibility">Stop Show</button>
+        </td>
+    </tr>
+</table>
+@code {
+    private static HubConnection? marqueeHubConnection, minerHubConnection, hideHubConnection;
+    private bool  mbutton, dbutton, hbutton;
+    private string mstartVisibility = "d-block";
+    private string mstopVisibility = "d-none";
+    private string dstartVisibility = "d-block";
+    private string dstopVisibility = "d-none";
+    private string hstartVisibility = "d-block";
+    private string hstopVisibility = "d-none";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(0);
+    }
+
+    private async Task StartMarquee()
+    { 
+        marqueeHubConnection = new HubConnectionBuilder()
+        .WithUrl(NavigationManager.ToAbsoluteUri("/marqueehub"))
+        .Build();
+
+        await marqueeHubConnection.StartAsync();
+        mbutton = false;
+        mstartVisibility = "d-none";
+        mstopVisibility = "d-block";
+        while (mbutton is false)
+        {
+            StateHasChanged();
+            await marqueeHubConnection.SendAsync("SendMarquee", true);
+            await Task.Delay(6500);
+        }  
+        StateHasChanged();
+    }
+
+    private async Task StopMarquee()
+    { 
+        mbutton = true;
+        StateHasChanged();
+        mstopVisibility = "d-none";
+        mstartVisibility = "d-block";
+        await marqueeHubConnection.SendAsync("StopMarquee", true);
+        await marqueeHubConnection.StopAsync();
+    }
+
+    private async Task StartMiners()
+    {
+        minerHubConnection = new HubConnectionBuilder()
+       .WithUrl(NavigationManager.ToAbsoluteUri("/minerhub"))
+       .Build();
+        await minerHubConnection.StartAsync();
+        dbutton = false;
+        dstartVisibility = "d-none";
+        dstopVisibility = "d-block";
+        while (dbutton is false)
+        {
+            StateHasChanged();
+            await minerHubConnection.SendAsync("SendMiners", true);
+            await Task.Delay(500);
+        }  
+        StateHasChanged();
+    }
+
+    private async Task StopMiners()
+    {
+        dbutton = true;
+        StateHasChanged();
+        dstopVisibility = "d-none";
+        dstartVisibility = "d-block";
+        await minerHubConnection.SendAsync("StopMiners", true);
+        await minerHubConnection.StopAsync();
+    }
+
+    private async Task StartHide()
+    {
+        hideHubConnection = new HubConnectionBuilder()
+        .WithUrl(NavigationManager.ToAbsoluteUri("/hidehub"))
+        .Build();
+        await hideHubConnection.StartAsync();
+        hbutton = false;
+        hstartVisibility = "d-none";
+        hstopVisibility = "d-block";
+        if(hbutton is false)
+        {
+            StateHasChanged();
+            await hideHubConnection.SendAsync("SendHide", true);
+        }  
+        StateHasChanged();
+    }
+
+    private async Task StopHide()
+    { 
+        hbutton = true;
+        StateHasChanged();
+        hstopVisibility = "d-none";
+        hstartVisibility = "d-block";
+        await hideHubConnection.SendAsync("StopHide", true);
+        await hideHubConnection.StopAsync();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (marqueeHubConnection is not null)
+        {
+            await marqueeHubConnection.DisposeAsync();
+        }
+        if (minerHubConnection is not null)
+        {
+            await minerHubConnection.DisposeAsync();
+        }
+        if (hideHubConnection is not null)
+        {
+            await hideHubConnection.DisposeAsync();
+        }
+
+    }
+}
+
+
+

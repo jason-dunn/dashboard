@@ -1,0 +1,444 @@
+﻿@page "/raw"
+@page "/raw/{ppLanguage:int?}"
+
+@using dashboard.Shared
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Threading
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@implements IAsyncDisposable
+
+@if (@miners != null && @yeilds != null)
+{
+	@if (hideall)
+	{
+		@if (load == false)
+		{
+			<div id="raw"><h3>&nbsp;</h3></div>
+			@switch (@iraw.Id())
+			{
+				case 1:
+					{
+						<div id="rawbox">
+							<marquee width="80%" style="margin-top:30px;" direction="left" height="30px">
+								<h4>@premarquee &nbsp; @marquee &nbsp; @postmarquee</h4>
+							</marquee>
+							<ul id="hr">
+								<li id="hr"><span class="spaceHeadae">@iraw.H1()</span><span class="spaceHeadbe">@iraw.H2()</span></li>
+							</ul>
+							<ul id="hr">
+								<li id="hr"><span class="space1be">@iraw.Worker()</span><span class="space2be">@iraw.Rank()</span><span class="space3be">@iraw.Name()</span><span class="space4be">@iraw.Current()</span><span class="space5be">@iraw.Total()</span><span class="space6be">@iraw.Payload()</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<br />
+						</div>
+						break;
+					}
+				case 2:
+					{
+						<div id="rawbox">
+							<marquee width="80%" style="margin-top:30px;" direction="left" height="30px">
+								<h4>@premarquee &nbsp; @marquee &nbsp; @postmarquee</h4>
+							</marquee>
+							<ul id="hr">
+								<li id="hr"><span class="spaceHeadaf">@iraw.H1()</span><span class="spaceHeadbf">@iraw.H2()</span></li>
+							</ul>
+							<ul id="hr">
+								<li id="hr"><span class="space1bf">@iraw.Worker()</span><span class="space2bf">@iraw.Rank()</span><span class="space3bf">@iraw.Name()</span><span class="space4bf">@iraw.Current()</span><span class="space5bf">@iraw.Total()</span><span class="space6bf">@iraw.Payload()</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a"></span><span class="space0b"></span><span class="space0c"></span><span class="space0d"></span><span class="space0e"></span><span class="space0f"></span></li>
+							</ul>
+							<br />
+						</div>
+						break;
+					}
+			}
+		}
+		else
+		{
+			<div id="raw"><h3>&nbsp;</h3></div>
+
+			@switch (@iraw.Id())
+			{
+				case 1:
+					{
+						<div id="rawboxload">
+							<br />
+							<h4 style="margin-left:10%; margin-right:5%;  height:30px;">@banner</h4>
+							<br />
+							<ul id="hr">
+								<li id="hr"><span class="spaceHeadae">@iraw.H1()</span><span class="spaceHeadbe">@iraw.H2()</span></li>
+							</ul>
+							<ul id="hr">
+								<li id="hr"><span class="space1be">@iraw.Worker()</span><span class="space2be">@iraw.Rank()</span><span class="space3be">@iraw.Name()</span><span class="space4be">@iraw.Current()</span><span class="space5be">@iraw.Total()</span><span class="space6be">@iraw.Payload()</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[0]._worker</span><span class="space0b">@updatedMiners[0]._rank</span><span class="space0c">@updatedMiners[0]._name</span> <span id="@updatedMinersList[0].ToString()" class="space0d">@updatedYeilds[0]._value</span> <span class="space0e">@updatedMiners[0]._total</span><span class="space0f">@updatedMiners[0]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[1]._worker</span><span class="space0b">@updatedMiners[1]._rank</span><span class="space0c">@updatedMiners[1]._name</span> <span id="@updatedMinersList[1].ToString()" class="space0d">@updatedYeilds[1]._value</span> <span class="space0e">@updatedMiners[1]._total</span><span class="space0f">@updatedMiners[1]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[2]._worker</span><span class="space0b">@updatedMiners[2]._rank</span><span class="space0c">@updatedMiners[2]._name</span> <span id="@updatedMinersList[2].ToString()" class="space0d">@updatedYeilds[2]._value</span> <span class="space0e">@updatedMiners[2]._total</span><span class="space0f">@updatedMiners[2]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[3]._worker</span><span class="space0b">@updatedMiners[3]._rank</span><span class="space0c">@updatedMiners[3]._name</span> <span id="@updatedMinersList[3].ToString()" class="space0d">@updatedYeilds[3]._value</span> <span class="space0e">@updatedMiners[3]._total</span><span class="space0f">@updatedMiners[3]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[4]._worker</span><span class="space0b">@updatedMiners[4]._rank</span><span class="space0c">@updatedMiners[4]._name</span> <span id="@updatedMinersList[4].ToString()" class="space0d">@updatedYeilds[4]._value</span> <span class="space0e">@updatedMiners[4]._total</span><span class="space0f">@updatedMiners[4]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[5]._worker</span><span class="space0b">@updatedMiners[5]._rank</span><span class="space0c">@updatedMiners[5]._name</span> <span id="@updatedMinersList[5].ToString()" class="space0d">@updatedYeilds[5]._value</span> <span class="space0e">@updatedMiners[5]._total</span><span class="space0f">@updatedMiners[5]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[6]._worker</span><span class="space0b">@updatedMiners[6]._rank</span><span class="space0c">@updatedMiners[6]._name</span> <span id="@updatedMinersList[6].ToString()" class="space0d">@updatedYeilds[6]._value</span> <span class="space0e">@updatedMiners[6]._total</span><span class="space0f">@updatedMiners[6]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[7]._worker</span><span class="space0b">@updatedMiners[7]._rank</span><span class="space0c">@updatedMiners[7]._name</span> <span id="@updatedMinersList[7].ToString()" class="space0d">@updatedYeilds[7]._value</span> <span class="space0e">@updatedMiners[7]._total</span><span class="space0f">@updatedMiners[7]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[8]._worker</span><span class="space0b">@updatedMiners[8]._rank</span><span class="space0c">@updatedMiners[8]._name</span> <span id="@updatedMinersList[8].ToString()" class="space0d">@updatedYeilds[8]._value</span> <span class="space0e">@updatedMiners[8]._total</span><span class="space0f">@updatedMiners[8]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[9]._worker</span><span class="space0b">@updatedMiners[9]._rank</span><span class="space0c">@updatedMiners[9]._name</span> <span id="@updatedMinersList[9].ToString()" class="space0d">@updatedYeilds[9]._value</span> <span class="space0e">@updatedMiners[9]._total</span><span class="space0f">@updatedMiners[9]._payload</span></li>
+							</ul>
+							<br />
+						</div>
+						break;
+					}
+				case 2:
+					{
+						<div id="rawboxload">
+							<br />
+							<h4 style="margin-left:10%; margin-right:5%;  height:30px;">@banner</h4>
+							<br />
+							<ul id="hr">
+								<li id="hr"><span class="spaceHeadaf">@iraw.H1()</span><span class="spaceHeadbf">@iraw.H2()</span></li>
+							</ul>
+							<ul id="hr">
+								<li id="hr"><span class="space1bf">@iraw.Worker()</span><span class="space2bf">@iraw.Rank()</span><span class="space3bf">@iraw.Name()</span><span class="space4bf">@iraw.Current()</span><span class="space5bf">@iraw.Total()</span><span class="space6bf">@iraw.Payload()</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[0]._worker</span><span class="space0b">@updatedMiners[0]._rank</span><span class="space0c">@updatedMiners[0]._name</span> <span id="@updatedMinersList[0].ToString()" class="space0d">@updatedYeilds[0]._value</span> <span class="space0e">@updatedMiners[0]._total</span><span class="space0f">@updatedMiners[0]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[1]._worker</span><span class="space0b">@updatedMiners[1]._rank</span><span class="space0c">@updatedMiners[1]._name</span> <span id="@updatedMinersList[1].ToString()" class="space0d">@updatedYeilds[1]._value</span> <span class="space0e">@updatedMiners[1]._total</span><span class="space0f">@updatedMiners[1]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[2]._worker</span><span class="space0b">@updatedMiners[2]._rank</span><span class="space0c">@updatedMiners[2]._name</span> <span id="@updatedMinersList[2].ToString()" class="space0d">@updatedYeilds[2]._value</span> <span class="space0e">@updatedMiners[2]._total</span><span class="space0f">@updatedMiners[2]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[3]._worker</span><span class="space0b">@updatedMiners[3]._rank</span><span class="space0c">@updatedMiners[3]._name</span> <span id="@updatedMinersList[3].ToString()" class="space0d">@updatedYeilds[3]._value</span> <span class="space0e">@updatedMiners[3]._total</span><span class="space0f">@updatedMiners[3]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[4]._worker</span><span class="space0b">@updatedMiners[4]._rank</span><span class="space0c">@updatedMiners[4]._name</span> <span id="@updatedMinersList[4].ToString()" class="space0d">@updatedYeilds[4]._value</span> <span class="space0e">@updatedMiners[4]._total</span><span class="space0f">@updatedMiners[4]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[5]._worker</span><span class="space0b">@updatedMiners[5]._rank</span><span class="space0c">@updatedMiners[5]._name</span> <span id="@updatedMinersList[5].ToString()" class="space0d">@updatedYeilds[5]._value</span> <span class="space0e">@updatedMiners[5]._total</span><span class="space0f">@updatedMiners[5]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[6]._worker</span><span class="space0b">@updatedMiners[6]._rank</span><span class="space0c">@updatedMiners[6]._name</span> <span id="@updatedMinersList[6].ToString()" class="space0d">@updatedYeilds[6]._value</span> <span class="space0e">@updatedMiners[6]._total</span><span class="space0f">@updatedMiners[6]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[7]._worker</span><span class="space0b">@updatedMiners[7]._rank</span><span class="space0c">@updatedMiners[7]._name</span> <span id="@updatedMinersList[7].ToString()" class="space0d">@updatedYeilds[7]._value</span> <span class="space0e">@updatedMiners[7]._total</span><span class="space0f">@updatedMiners[7]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[8]._worker</span><span class="space0b">@updatedMiners[8]._rank</span><span class="space0c">@updatedMiners[8]._name</span> <span id="@updatedMinersList[8].ToString()" class="space0d">@updatedYeilds[8]._value</span> <span class="space0e">@updatedMiners[8]._total</span><span class="space0f">@updatedMiners[8]._payload</span></li>
+							</ul>
+							<ul id="updatedMinersList">
+								<li><span class="space0"></span><span class="space0a">@updatedMiners[9]._worker</span><span class="space0b">@updatedMiners[9]._rank</span><span class="space0c">@updatedMiners[9]._name</span> <span id="@updatedMinersList[9].ToString()" class="space0d">@updatedYeilds[9]._value</span> <span class="space0e">@updatedMiners[9]._total</span><span class="space0f">@updatedMiners[9]._payload</span></li>
+							</ul>
+							<br />
+						</div>
+						break;
+					}
+
+			}
+
+		}
+
+
+	}
+	else
+	{
+	<div id="raw"><h3>&nbsp;</h3></div>
+	<div id="rawboxstatus">
+		<table id="legend">
+			<tr><td><br /></td></tr>
+			<tr><td><br /></td></tr>
+			<tr><td><br /></td></tr>
+		    <tr><td><br /></td></tr>
+			<tr><td><br /></td></tr>
+			<tr><td></td><td><h1>Worker Status</h1></td><td></td></tr>
+			<tr><td><br /></td></tr>
+			<tr>
+				<td></td>
+				<td>
+					<h4>Blank - Worker is off-line</h4>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="color:#ff6a00">
+					<h4>Worker is not mining</h4>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="color:#00ff21">
+					<h4>Worker is mining normal</h4>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="color:#b200ff">
+					<h4>Worker is mining aggressive</h4>
+				</td>
+				<td></td>
+			</tr>
+		    <tr><td><br /></td></tr>
+			<tr><td><br /></td></tr>
+			<tr>
+				<td></td>
+				<td style="color:#0094ff">
+					<h4>Worker has reported completed</h4>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	}
+}
+
+@code {
+	[Parameter]
+	public int ppLanguage { get; set; }
+	private static HubConnection? marqueeHubConnection, minerHubConnection, hideHubConnection;
+	private dashboard.Shared.Raw raw = new dashboard.Shared.Raw();
+
+	private static Miner[] miners;
+	private static Yeild[] yeilds;
+	IRaw iraw;
+	private static string strUML = "s1";
+	private static List<string> updatedMinersList = new List<string>();
+	private static List<StringMiner> updatedMiners = new List<StringMiner>();
+	private static List<StringYeild> updatedYeilds = new List<StringYeild>();
+	private string premarquee, marquee, postmarquee, banner;
+	private int language;
+	private bool load;
+	private bool hideall = true;
+	public bool IsMarqeeConnected => marqueeHubConnection?.State == HubConnectionState.Connected;
+	public bool IsMinerConnected => minerHubConnection?.State == HubConnectionState.Connected;
+	public bool IsHideConnected => hideHubConnection?.State == HubConnectionState.Connected;
+
+	protected override async Task OnInitializedAsync()
+	{
+		language = ppLanguage;
+		miners = await Http.GetFromJsonAsync<Miner[]>("/miner/index");
+		yeilds = await Http.GetFromJsonAsync<Yeild[]>("/yeild/index");
+		iraw = raw = await Http.GetFromJsonAsync<dashboard.Shared.Raw>($"/raw/index/{language}");
+
+		for (int i = 0; i <= 9; i++)
+		{
+			updatedMinersList.Add(strUML);
+			updatedMiners.Add(new StringMiner());
+			updatedYeilds.Add(new StringYeild());
+		}
+
+		int m = 0;
+		foreach (Miner miner in miners)
+		{
+			updatedMiners[m]._worker = miner._worker.ToString();
+			updatedMiners[m]._rank = miner._rank.ToString();
+			updatedMiners[m]._name = miner._name.ToString();
+			updatedMiners[m]._total = miner._total.ToString();
+			updatedMiners[m]._payload = miner._payload.ToString();
+			m++;
+		}
+
+		int y = 0;
+		foreach (Yeild yeild in yeilds)
+		{
+			updatedYeilds[y]._worker = yeild._worker.ToString();
+			updatedYeilds[y]._value = yeild._value.ToString();
+			updatedYeilds[y]._datetime = yeild._datetime.ToString();
+			y++;
+		}
+
+		marqueeHubConnection = new HubConnectionBuilder()
+				.WithUrl(NavigationManager.ToAbsoluteUri("/marqueehub"))
+				.Build();
+		marqueeHubConnection.On<Miner, Yeild, bool>("RecieveMarquee", (marqueeMiner, marqueeYeild, err) =>
+		{
+			if (marqueeMiner._worker != 0)
+			{
+				premarquee = "-";
+				marquee = $"{iraw.Marquee()}";
+				banner = $"{marqueeMiner._name} {iraw.Ismining()} {marqueeYeild._value} {iraw.Hasreached()} # {marqueeMiner._payload.ToString()}-{marqueeMiner._total.ToString()} #";
+				postmarquee = "-";
+				StateHasChanged();
+			}
+			else
+			{
+				premarquee = "";
+				marquee = "";
+				banner = "";
+				postmarquee = "";
+				StateHasChanged();
+			}
+		});
+
+		await marqueeHubConnection.StartAsync();
+
+		minerHubConnection = new HubConnectionBuilder()
+		.WithUrl(NavigationManager.ToAbsoluteUri("/minerhub"))
+		.Build();
+
+		minerHubConnection.On<Miner[], Yeild[], bool, bool>("RecieveMiners", (miner, yeild, err, _load) =>
+		{
+			if (_load == true)
+			{
+				int s = 0;
+				foreach (var selected in updatedYeilds)
+				{
+					if (selected._value != yeild.ElementAt(s)._value.ToString())
+					{
+						updatedMinersList[s] = "s4";
+					}
+					else
+					{
+						updatedMinersList[s] = "s" + yeild.ElementAt(s)._status.ToString();
+					}
+					s++;
+				}
+
+
+				for (int i = 0; i <= 9; i++)
+				{
+					if (i < 9)
+					{
+						updatedMiners[i]._worker = "0" + miner.ElementAt(i)._worker;
+					}
+					else
+					{
+						updatedMiners[i]._worker = miner.ElementAt(i)._worker.ToString();
+					}
+					updatedMiners[i]._rank = miner.ElementAt(i)._rank.ToString();
+					updatedMiners[i]._name = miner.ElementAt(i)._name.ToString();
+					if (miner.ElementAt(i)._total < 10000000)
+					{
+						if (miner.ElementAt(i)._total < 1000000)
+						{
+							updatedMiners[i]._total = "00" + miner.ElementAt(i)._total.ToString();
+						}
+						else
+						{
+							updatedMiners[i]._total = "0" + miner.ElementAt(i)._total.ToString();
+						}
+					}
+					else
+					{
+						updatedMiners[i]._total = miner.ElementAt(i)._total.ToString();
+					}
+					updatedMiners[i]._payload = miner.ElementAt(i)._payload.ToString();
+					updatedYeilds[i]._worker = yeild.ElementAt(i)._worker.ToString();
+					updatedYeilds[i]._value = yeild.ElementAt(i)._value.ToString();
+					updatedYeilds[i]._datetime = yeild.ElementAt(i)._datetime.ToString();
+				}
+				load = _load;
+				StateHasChanged();
+			}
+			else
+			{
+				load = _load;
+				StateHasChanged();
+			}
+		});
+
+		await minerHubConnection.StartAsync();
+
+		hideHubConnection = new HubConnectionBuilder()
+				.WithUrl(NavigationManager.ToAbsoluteUri("/hidehub"))
+				.Build();
+		hideHubConnection.On<bool, bool>("RecieveHide", (hide, err) =>
+		{
+			hideall = hide;
+			StateHasChanged();
+		});
+		await hideHubConnection.StartAsync();
+	}
+	public async ValueTask DisposeAsync()
+	{
+		if (marqueeHubConnection is not null)
+		{
+			await marqueeHubConnection.DisposeAsync();
+		}
+		if (minerHubConnection is not null)
+		{
+			await minerHubConnection.DisposeAsync();
+		}
+	}
+}
+
+
+

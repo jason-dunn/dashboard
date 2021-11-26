@@ -1,0 +1,420 @@
+﻿html, body {
+    color: #0094ff;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 80px;
+}
+
+h3 {
+    color: #0094ff;
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    text-align: center;
+    margin: auto;
+}
+
+#raw h3 {
+    color: #000000;
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    text-align: center;
+    margin: auto;
+}
+
+#legend {
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
+
+table tbody {
+    table-layout: fixed;
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+   width: 100vw;
+}
+
+table td {
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    text-align: center;
+    width: 33vw;
+/*    margin-left: auto;
+    margin-right: auto;*/
+}
+
+table h1 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+    text-align: left;
+    padding-left: 104px;
+}
+
+table h4 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 18.4px;
+    text-align: left;
+    padding-left: 60px;
+    width:340px;
+}
+
+#rawbox {
+    color: #000000;
+    border: solid;
+    margin: auto;
+    width: 760px;
+    height:500px;
+    padding-left:100px;
+}
+
+#rawboxload {
+    border: solid;
+    border-color: #0094ff;
+    margin: auto;
+    width: 760px;
+    height: 500px;
+    padding-left: 100px;
+}
+
+#rawboxstatus {
+    color: #000000;
+    border: solid;
+    border-color: #0094ff;
+    margin: auto;
+    width: 760px;
+    height: 500px;
+}
+
+ul span.space {
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+ul span.spaceHeadae {
+    color: #000000;
+    margin-left: 40px;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+}
+
+ul span.spaceHeadbe {
+    color: #000000;
+    margin-left: 180px;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+}
+
+ul span.spaceHeadaf {
+    color: #000000;
+    margin-left: 40px;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+}
+
+ul span.spaceHeadbf {
+    color: #000000;
+    margin-left: 118px;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+}
+
+ul span.space0 {
+    padding: 0px;
+    font-size: 14px;
+    margin-left: 0px;
+    margin-right: 0px;
+    line-height:24px;
+}
+
+ul span.space0a {
+    padding: 0px;
+    font-size: 24px;
+    margin-left: 0px;
+    margin-right: 0px;
+    line-height: 24px;
+}
+
+ul span.space0b {
+    padding: 0px;
+    font-size: 24px;
+    margin-left: 24px;
+    margin-right: 0px;
+    line-height: 24px;
+}
+
+ul span.space0c {
+    padding: 0px;
+    font-size: 24px;
+    margin-left: 26px;
+    margin-right: 0px;
+    line-height: 24px;
+}
+
+ul span.space0d {
+    padding: 0px;
+    font-size: 24px;
+    margin-left: 12px;
+    margin-right: 0px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+ul span.space0e {
+    padding: 0px;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 0px;
+    font-style: normal;
+    font-variant: normal;
+    text-align: left;
+    line-height: 24px;
+}
+
+ul span.space0f {
+    padding: 0px;
+    font-size: 24px;
+    margin-left: 20px;
+    margin-right: 0px;
+    line-height: 24px;
+}
+
+ul span.space1a {
+    color: #000000;
+    font-size: 12px;
+}
+
+ul span.space2a {
+    color: #000000;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+ul span.space3a {
+    color: #000000;
+    margin-left: 24px;
+    font-size: 12px;
+}
+
+ul span.space4a {
+    color: #000000;
+    margin-left: 116px;
+    font-size: 12px;
+}
+
+ul span.space5a {
+    color: #000000;
+    margin-left: 92px;
+    font-size: 12px;
+
+}
+
+ul span.space6a {
+    color: #000000;
+    margin-left: 88px;
+    font-size: 12px;
+}
+
+ul span.space1be {
+    color: #000000;
+    font-size: 12px;
+}
+
+ul span.space2be {
+    color: #000000;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+ul span.space3be {
+    color: #000000;
+    margin-left: 24px;
+    font-size: 12px;
+}
+
+ul span.space4be {
+    color: #000000;
+    margin-left: 116px;
+    font-size: 12px;
+}
+
+ul span.space5be {
+    color: #000000;
+    margin-left: 92px;
+    font-size: 12px;
+}
+
+ul span.space6be {
+    color: #000000;
+    margin-left: 100px;
+    font-size: 12px;
+}
+ul span.space1bf {
+    color: #000000;
+    font-size: 12px;
+}
+
+ul span.space2bf {
+    color: #000000;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+ul span.space3bf {
+    color: #000000;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+ul span.space4bf {
+    color: #000000;
+    margin-left: 120px;
+    font-size: 12px;
+}
+
+ul span.space5bf {
+    color: #000000;
+    margin-left: 96px;
+    font-size: 12px;
+}
+
+ul span.space6bf{
+    color: #000000;
+    margin-left: 74px;
+    font-size: 12px;
+}
+
+p {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+blockquote {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+pre {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+ul {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 80px;
+    margin-left: -20px;
+    list-style-type: none;
+}
+
+li {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+#s0 {
+    color: #FFFFFF;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+#s1 {
+    color: #ff6a00;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+#s2{
+    color: #00ff21;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+#s3 {
+    color: #b200ff;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+#s4  {
+    color: #0094ff;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+#working span {
+    color: #444444;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 32px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
