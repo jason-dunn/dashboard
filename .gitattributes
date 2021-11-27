@@ -2,6 +2,7 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
+*.c# linguist-language=Solidity
 *.html linguist-detectable=false
 *.css linguist-detectable=false
 *.javascript linguist-detectable=false
