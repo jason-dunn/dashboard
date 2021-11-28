@@ -4,4 +4,4 @@ A Microsoft.AspNet.SignalR hub class in the server project is used for receiving
 
 The resulting grid displays the current data queried from multiple tables in the SQL database. A Microsoft.EntityFrameworkCore dbcontext class in the server project is used for real time data streaming. The grid also displays the status of each miner. A miner can be off-line, not mining, mining normal or mining aggressive. 
 
-If you get to here jasonisdunn.tech select a language and enter the code “123456”. 
+If you get to here [jasonisdunn.tech](http://jasonisdunn.tech) select a language and enter the code “123456”. 
